@@ -1,9 +1,5 @@
 {
-	"handler": {
-		"type": "Router",
-		"audit": "global",
-		"capture": "all"
-	},
+	"handler": "ClientHandler",
 	"heap": [{
 		"name": "LogSink",
 		"type": "ConsoleLogSink",

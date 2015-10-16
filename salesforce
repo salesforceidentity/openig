@@ -1,29 +1,53 @@
 {
-    "handler": "ClientHandler",
-    "heap": [
-        {
-            "name": "LogSink",
-            "type": "ConsoleLogSink",
-            "config": {
-                "level": "DEBUG"
-            }
-        },
-        {
-            "name": "JwtSession",
-            "type": "JwtSession"
-        },
-        {
-            "name": "ClientHandler",
-            "type": "ClientHandler"
-        },
-        {
-            "name": "capture",
-            "type": "CaptureDecorator",
-            "config": {
-                "captureEntity": true,
-                "_captureExchange": true
-            }
-        }
-    ],
-    "baseURI": "https://www.salesforce.com"
+	"heap": {
+		"objects": [{
+				"name": "Hello",
+				"type": "StaticResponseHandler",
+				"config": {
+					"status": 200,
+					"entity": "<html><body><h1>Hello Again</h1></body></html>"
+				}
+			},
+
+			{
+				"name": "Salesforce"
+				"type": "ClientHandler",
+				"heap": [
+
+					{
+						"name": "LogSink",
+						"type": "ConsoleLogSink",
+						"config": {
+							"level": "DEBUG"
+						}
+					}, {
+						"name": "JwtSession",
+						"type": "JwtSession"
+					}, {
+						"name": "ClientHandler",
+						"type": "ClientHandler"
+					}, {
+						"name": "capture",
+						"type": "CaptureDecorator",
+						"config": {
+							"captureEntity": true,
+							"_captureExchange": true
+						}
+					}, {
+						"handler": {
+							"type": "MonitorEndpointHandler"
+						},
+						"condition": "${exchange.request.method == 'GET' and exchange.request.uri.path == '/monitor'}",
+						"audit": "Monitor route"
+					}
+				],
+				"baseURI": "https://www.salesforce.com"
+			}
+
+		]
+	},
+	"condition": "${matches(exchange.request.uri.path, '^/hello')}",
+	"handler": "Hello",
+	"condition": "${matches(exchange.request.uri.path, '^/salesforce')}",
+	"handler": "Salesforce"
 }

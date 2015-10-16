@@ -6,7 +6,7 @@
                 "type": "StaticResponseHandler",
                 "config": {
                     "status": 200,
-                    "entity": "<html><body><h1>Hello World</h1></body></html>"
+                    "entity": "<html><body><h1>Hello There</h1></body></html>"
                 }
             }
         ]

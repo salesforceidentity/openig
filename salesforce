@@ -22,7 +22,7 @@
  		"handler": {
  		"type": "MonitorEndpointHandler"
  		},
- 		"condition": "${exchange.request.method == 'GET' and exchange.request.uri.path == '/monitor'}"
+ 		"condition": "${exchange.request.method == 'GET' and exchange.request.uri.path == '/monitor'}",
  		"audit": "Monitor route"
 	}],
 	"baseURI": "https://www.salesforce.com"

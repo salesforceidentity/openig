@@ -1,4 +1,4 @@
 [
- {"name": "00-salesforce.json","route":{"handler": "ClientHandler"}}
+ {"name": "00-salesforce.json","route":{"handler": "ClientHandler"}},
  {"name": "02-another.json","route":{"handler": "ClientHandler"}}
 ]

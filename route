@@ -1,7 +1,7 @@
 {
     "routes": [
         {
-            "name": "00-salesforce.json",
+            "name": "99-default.json",
             "route": {
                 "handler": "ClientHandler"
             }

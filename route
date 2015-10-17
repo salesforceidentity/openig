@@ -5,12 +5,6 @@
             "route": {
                 "handler": "ClientHandler"
             }
-        },
-        {
-            "name": "02-another.json",
-            "route": {
-                "handler": "ClientHandler"
-            }
         }
     ]
 }
